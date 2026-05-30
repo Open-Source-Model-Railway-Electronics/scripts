@@ -1,0 +1,12 @@
+date.h
+io.cpp
+io.h
+*.hex
+*.bin
+*.elf
+*.eep
+*cache
+*.zip
+*.kicad_prl
+fp-info-cache
+/release/
