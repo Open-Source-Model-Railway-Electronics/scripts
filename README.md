@@ -6,6 +6,33 @@ These scripts live in a shared `scripts/` folder at the organisation root and ar
 
 ---
 
+## Setting up a fresh workspace
+
+If you are onboarding to the project and want a complete local copy of the organisation, do this once:
+
+**1. Install the prerequisites** (see section below)
+
+**2. Authenticate the GitHub CLI**
+```
+gh auth login
+```
+
+**3. Create the workspace folder and clone the scripts repo**
+```
+mkdir Open-Source-Model-Railway-Electronics
+cd Open-Source-Model-Railway-Electronics
+gh repo clone Open-Source-Model-Railway-Electronics/scripts
+```
+
+**4. Clone the rest of the organisation**
+```
+python scripts/cloneOrg.py
+```
+
+That's it. Every repository in the organisation is now cloned into the workspace folder, matching the standard layout.
+
+---
+
 ## Prerequisites
 
 ### Python 3
@@ -69,6 +96,7 @@ Open-Source-Model-Railway-Electronics/   ← organisation root
 │   ├── releaseVersion.py
 │   ├── releaseBoardFiles.py
 │   ├── exportSchematics.py
+│   ├── cloneOrg.py
 │   └── initGitOSMRE.py
 ├── OS-software-tool/                    ← hex distribution repo
 ├── OS-Solenoid-Decoder/
@@ -149,6 +177,21 @@ Scans every repo for a KiCad root schematic (the `.kicad_sch` whose filename sta
 cd Open-Source-Model-Railway-Electronics
 python scripts/exportSchematics.py
 ```
+
+---
+
+### `cloneOrg.py`
+
+**Run from:** the organisation root folder (the folder that contains `scripts/`).
+
+Fetches the full repository list from GitHub and clones every repo in the organisation that is not already present locally. Repos that already exist as a local folder are silently skipped, so it is safe to run again after adding new repositories to the organisation.
+
+```
+cd Open-Source-Model-Railway-Electronics
+python scripts/cloneOrg.py
+```
+
+Requires the GitHub CLI to be installed and authenticated (`gh auth login`).
 
 ---
 
