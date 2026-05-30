@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """
 releaseVersion.py
 Run from a repo's software/ folder.
